@@ -7,6 +7,7 @@ const defaultState = {
   };
   
   export default function(state = defaultState, action: any) {
+
     switch (action.type) {
       case FETCH_CONSTANT:
         const constData = action.payload as ConstantQueryModel;
