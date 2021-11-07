@@ -1,0 +1,1 @@
+export const FETCH_CONSTANT = "Fetch_Constant"
