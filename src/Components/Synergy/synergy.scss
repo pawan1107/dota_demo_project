@@ -1,0 +1,24 @@
+.synergy-container {
+    display: inline-block;
+    .synergy-header {
+        margin-bottom: 0;
+    }
+    .synergy-body {
+        display: inline-flex;
+        width: 100%;
+        margin: auto;
+        .synergy-column {
+            margin-right: 32px;
+            .synergy-cell {
+                display: inline-flex;
+                justify-content: space-between;
+                width: 100%;
+                align-items: center;
+                margin-bottom: 8px;
+            }
+            .column-header {
+                text-align: center;
+            }
+        }
+    }
+}

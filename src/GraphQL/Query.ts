@@ -1,8 +1,8 @@
 import { gql } from "@apollo/client";
-import { Hero, Item } from "./Fragments"
+import { Hero, HeroDryad, HeroStatsHeroDryad, Item } from "./Fragments"
 
 
-export const GET_ALL_HERO_ITEM= gql`
+export const GET_ALL_HERO_ITEM = gql`
     ${Hero}
     ${Item}
     query Constants($languageEnum: Language) {
@@ -16,6 +16,28 @@ export const GET_ALL_HERO_ITEM= gql`
             __typename
         }
         __typename
+        }
+    }
+`;
+
+
+export const GET_HERO_MATCHUP = gql`
+    ${HeroDryad}
+    ${HeroStatsHeroDryad}
+    query GetHeroMatchup($heroId: Short!, $bracketBasicIds: [RankBracketHeroTimeDetail]) {
+        heroStats {
+          heroVsHeroMatchup(heroId: $heroId, bracketBasicIds: $bracketBasicIds) {
+            advantage {
+              ...HeroDryad
+              __typename
+            }
+            disadvantage {
+              ...HeroDryad
+              __typename
+            }
+            __typename
+          }
+          __typename
         }
     }
 `;

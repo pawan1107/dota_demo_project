@@ -1,6 +1,7 @@
 import { useSelector } from 'react-redux';
 import { selectCurrentHero } from '../../Utils/Selector';
-import { GetHeroHorz } from '../../Utils/Utis';
+import { GetHeroHorz } from '../../Utils/Utils';
+import Synergy from '../Synergy/Synergy';
 import './hero.scss';
 
 function Hero(): JSX.Element {
@@ -11,6 +12,10 @@ function Hero(): JSX.Element {
                 <img className = "hero-image" src={ GetHeroHorz(currentHero.name) } />
                 <h1 className = "hero-name">{currentHero.language.displayName}</h1>
             </div>
+            <div>
+                <Synergy/>
+            </div>
+            
         </div>  
     ) : <></>;
 }

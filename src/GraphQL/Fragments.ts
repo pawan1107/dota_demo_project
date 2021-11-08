@@ -23,3 +23,22 @@ export const Item = gql`
         __typename
     }
 `;
+
+export const HeroDryad = gql`
+    fragment HeroDryad on HeroDryadType {
+        vs {
+        ...HeroStatsHeroDryad
+        __typename
+        }
+        __typename
+    }
+`;
+
+export const HeroStatsHeroDryad = gql`
+    fragment HeroStatsHeroDryad on HeroStatsHeroDryadType {
+        heroId1
+        heroId2
+        synergy
+        __typename
+    }
+`;
