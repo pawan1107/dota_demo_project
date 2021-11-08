@@ -1,4 +1,5 @@
 import { IHeroSynergy } from "./HeroSynergyModel";
+import { IHeroWinData } from "./HeroWinDataModel";
 
 export interface ISynergy {    
     heroStats : IHeroStats;
@@ -6,6 +7,7 @@ export interface ISynergy {
 
 export interface IHeroStats {    
     heroVsHeroMatchup : IHeroVsHeroMatchup;
+    hero: IHeroWinData[];
 }
 
 export interface IHeroVsHeroMatchup {    

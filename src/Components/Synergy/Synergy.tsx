@@ -37,7 +37,7 @@ function Synergy(): JSX.Element {
         </div>)
     }
 
-    return (
+    return data && (
         <div className = "synergy-container">
             <h2 className = "synergy-header">Synergy</h2>
             <div className = "synergy-body">
@@ -59,7 +59,7 @@ function Synergy(): JSX.Element {
             </div>
             
         </div>
-    )
+    ) || <></>
 }
 
 export default Synergy;

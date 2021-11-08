@@ -42,3 +42,12 @@ export const HeroStatsHeroDryad = gql`
         __typename
     }
 `;
+
+export const HeroDayFragment = gql`
+    fragment HeroDayFragment on HeroWinDayType {
+        timestamp: day
+        matchCount
+        winCount
+        __typename
+    }
+`;

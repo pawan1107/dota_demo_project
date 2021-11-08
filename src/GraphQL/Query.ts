@@ -1,5 +1,5 @@
 import { gql } from "@apollo/client";
-import { Hero, HeroDryad, HeroStatsHeroDryad, Item } from "./Fragments"
+import { Hero, HeroDayFragment, HeroDryad, HeroStatsHeroDryad, Item } from "./Fragments"
 
 
 export const GET_ALL_HERO_ITEM = gql`
@@ -39,5 +39,18 @@ export const GET_HERO_MATCHUP = gql`
           }
           __typename
         }
+    }
+`;
+
+export const GET_HERO_GRAPH = gql`
+    ${HeroDayFragment}
+    query GetGraphsTime($heroIds: [Short!]!, $take: Int) {
+      heroStats {
+        hero: winDay(take: $take, heroIds: $heroIds) {
+          ...HeroDayFragment
+          __typename
+        }
+        __typename
+      }
     }
 `;

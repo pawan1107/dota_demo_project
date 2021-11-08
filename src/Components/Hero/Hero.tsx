@@ -2,6 +2,7 @@ import { useSelector } from 'react-redux';
 import { selectCurrentHero } from '../../Utils/Selector';
 import { GetHeroHorz } from '../../Utils/Utils';
 import Synergy from '../Synergy/Synergy';
+import Winrate from '../Winrate/Winrate';
 import './hero.scss';
 
 function Hero(): JSX.Element {
@@ -14,6 +15,7 @@ function Hero(): JSX.Element {
             </div>
             <div>
                 <Synergy/>
+                <Winrate/>
             </div>
             
         </div>  
