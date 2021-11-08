@@ -31,7 +31,7 @@ function Synergy(): JSX.Element {
     }
 
     const syngeryDiv = (synergy: IHeroSynergy, isBest: boolean) => {
-        return (<div className = "synergy-cell"> 
+        return (<div key = {synergy.heroId2.toString()} className = "synergy-cell"> 
             <img className = "hero-icon" src={ GetHeroIcon(synergy.hero2.name) } />
             <span className = "synergy-value">{isBest ? "+ ": ""}{synergy.synergy.toFixed(1)}</span>
         </div>)

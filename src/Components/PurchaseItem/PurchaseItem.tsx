@@ -14,7 +14,7 @@ import './purchaseItem.scss';
 
 export default function PurchaseItem() {
 
-    let tableData;
+    let tableData: ItemPurchaseTableModel[] = [];
     const itemList = useSelector(selectItemList);
     const currentHero = useSelector(selectCurrentHero);
     const { error, loading, data } = useQuery(GET_HERO_PURCHASE_ITEM_FULL, {
@@ -44,10 +44,10 @@ export default function PurchaseItem() {
           data.itemId === thing.itemId
         ))
       )
-        tableData = distinctItem.map((data) => getTableDataCell(data, itemPurchaseData.matchCount))
+        tableData = distinctItem.map((data) => getTableDataCell(data, itemPurchaseData.matchCount)) as ItemPurchaseTableModel[];
     }
 
-    return tableData && (
+    return data && (
         <div className = "purchaseItem-container">
             <h2 className = "synergy-header">Item Purchase Details</h2>
             <ReactTable
@@ -90,6 +90,7 @@ export default function PurchaseItem() {
                       desc: true
                     }
                   ]}
+                defaultPageSize = {tableData.length}
                 showPaginationBottom={false}
                 className="-striped -highlight react-table"
                 
