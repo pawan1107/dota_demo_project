@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/dota_demo_project/static/css/main.fe85e6fe.chunk.css",
+    "main.css": "/dota_demo_project/static/css/main.c89d091c.chunk.css",
     "main.js": "/dota_demo_project/static/js/main.2d6c30db.chunk.js",
     "main.js.map": "/dota_demo_project/static/js/main.2d6c30db.chunk.js.map",
     "runtime-main.js": "/dota_demo_project/static/js/runtime-main.beee3362.js",
@@ -12,14 +12,14 @@
     "static/js/3.cea92088.chunk.js.map": "/dota_demo_project/static/js/3.cea92088.chunk.js.map",
     "index.html": "/dota_demo_project/index.html",
     "static/css/2.5e767f35.chunk.css.map": "/dota_demo_project/static/css/2.5e767f35.chunk.css.map",
-    "static/css/main.fe85e6fe.chunk.css.map": "/dota_demo_project/static/css/main.fe85e6fe.chunk.css.map",
+    "static/css/main.c89d091c.chunk.css.map": "/dota_demo_project/static/css/main.c89d091c.chunk.css.map",
     "static/js/2.6f1ac8cf.chunk.js.LICENSE.txt": "/dota_demo_project/static/js/2.6f1ac8cf.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.beee3362.js",
     "static/css/2.5e767f35.chunk.css",
     "static/js/2.6f1ac8cf.chunk.js",
-    "static/css/main.fe85e6fe.chunk.css",
+    "static/css/main.c89d091c.chunk.css",
     "static/js/main.2d6c30db.chunk.js"
   ]
 }
