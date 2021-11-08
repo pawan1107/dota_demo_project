@@ -1,3 +1,4 @@
+import { IFullPurchaseItemModel } from "./FullPurchaseItemModel copy";
 import { IHeroSynergy } from "./HeroSynergyModel";
 import { IHeroWinData } from "./HeroWinDataModel";
 
@@ -8,6 +9,7 @@ export interface ISynergy {
 export interface IHeroStats {    
     heroVsHeroMatchup : IHeroVsHeroMatchup;
     hero: IHeroWinData[];
+    itemFullPurchase: IFullPurchaseItemModel;
 }
 
 export interface IHeroVsHeroMatchup {    

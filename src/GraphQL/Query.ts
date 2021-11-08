@@ -54,3 +54,23 @@ export const GET_HERO_GRAPH = gql`
       }
     }
 `;
+
+export const GET_HERO_PURCHASE_ITEM_FULL = gql`
+  query GetFullHeroPurchasePattern($matchLimit: Int = 0, $heroId: Short!) {
+    heroStats {
+      itemFullPurchase(matchLimit: $matchLimit, heroId: $heroId) {
+        heroId
+        week
+        events {
+          itemId
+          matchCount: count
+          wins: winsAverage
+          __typename
+        }
+        matchCount: count
+        __typename
+      }
+      __typename
+    }
+  }    
+`;

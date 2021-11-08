@@ -1,5 +1,6 @@
 .synergy-container {
     display: inline-block;
+    margin-right: 32px;
     .synergy-header {
         margin-bottom: 0;
     }
@@ -10,11 +11,16 @@
         .synergy-column {
             margin-right: 32px;
             .synergy-cell {
+                border-bottom: 0.5px solid rgb(160, 160, 160);
                 display: inline-flex;
                 justify-content: space-between;
                 width: 100%;
                 align-items: center;
                 margin-bottom: 8px;
+                padding: 8px;
+            }
+            .synergy-cell:first-of-type{
+                border-top: 0.5px solid rgb(160, 160, 160);
             }
             .column-header {
                 text-align: center;

@@ -1,4 +1,6 @@
 .hero-container {
+    margin: 16px;
+    margin-top: 32px;
     .hero-section {
         display: inline-flex;
         .hero-image {
@@ -10,5 +12,8 @@
             margin: 10px;
             margin: auto 16px;
         }
+    }
+    .hero-body {
+        display: inline-flex;
     }
 }

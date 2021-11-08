@@ -30,10 +30,10 @@ function Synergy(): JSX.Element {
         wortSynergy = wortSynergy.map((data) => ({...data, hero2: heroList.find((hero) => hero.id === data.heroId2) as HeroModel}));
     }
 
-    const syngeryDiv = (synergy: IHeroSynergy) => {
+    const syngeryDiv = (synergy: IHeroSynergy, isBest: boolean) => {
         return (<div className = "synergy-cell"> 
             <img className = "hero-icon" src={ GetHeroIcon(synergy.hero2.name) } />
-            <span className = "synergy-value">{synergy.synergy.toFixed(1)}</span>
+            <span className = "synergy-value">{isBest ? "+ ": ""}{synergy.synergy.toFixed(1)}</span>
         </div>)
     }
 
@@ -44,14 +44,14 @@ function Synergy(): JSX.Element {
                 <div className = "best-against synergy-column">
                     <h3 className = "column-header">Best Against</h3>
                     {
-                       bestSynergy.map(synergy => syngeryDiv(synergy)) 
+                       bestSynergy.map(synergy => syngeryDiv(synergy, true)) 
                     }
 
                 </div>
                 <div className = "worst-against synergy-column">
                     <h3 className = "column-header">Worst Against</h3>
                     {
-                       wortSynergy.map(synergy => syngeryDiv(synergy)) 
+                       wortSynergy.map(synergy => syngeryDiv(synergy, false)) 
                     }
 
                 </div>
