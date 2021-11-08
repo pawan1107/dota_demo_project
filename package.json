@@ -2,6 +2,7 @@
   "name": "dota_demo_project",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://pawan1107.github.io/dota_demo_project",
   "dependencies": {
     "@apollo/client": "^3.4.16",
     "@testing-library/jest-dom": "^5.15.0",
@@ -12,6 +13,7 @@
     "@types/react": "^17.0.34",
     "@types/react-dom": "^17.0.11",
     "@types/react-table": "^6.7.2",
+    "gh-pages": "^3.2.3",
     "graphql": "^16.0.1",
     "moment": "^2.29.1",
     "node-sass": "^6.0.1",
@@ -29,7 +31,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
