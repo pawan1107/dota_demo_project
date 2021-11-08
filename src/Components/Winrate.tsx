@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Winrate() {
+function Winrate(): JSX.Element {
     return (
         <div>
             

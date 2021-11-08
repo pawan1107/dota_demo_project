@@ -3,7 +3,8 @@ import { ConstantQueryModel } from "../Models/ConstantQueryModel";
 
 const defaultState = {
     heroes: [],
-    items: []
+    items: [],
+    currentHero: null
   };
   
   export default function(state = defaultState, action: any) {
@@ -11,10 +12,12 @@ const defaultState = {
     switch (action.type) {
       case FETCH_CONSTANT:
         const constData = action.payload as ConstantQueryModel;
+        const currentHero = constData.heroes[Math.floor(Math.random() * constData.heroes.length)];
         return {
           ...state,
           heroes: constData.heroes,
-          items: constData.items
+          items: constData.items,
+          currentHero: currentHero
         };
       default:
         return state;

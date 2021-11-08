@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Synergy() {
+function Synergy(): JSX.Element {
     return (
         <div>
             
