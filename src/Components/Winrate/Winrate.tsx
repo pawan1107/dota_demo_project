@@ -1,28 +1,20 @@
-import { useQuery } from '@apollo/client';
-import React from 'react'
-import { useSelector } from 'react-redux';
-import { GET_HERO_GRAPH } from '../../GraphQL/Query';
-import { selectCurrentHero } from '../../Utils/Selector';
+import { connect } from 'react-redux';
 import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip } from 'recharts';
-import { ISynergy } from '../../Models/HeroStatsInterface';
-import { HeroWinDataModel } from '../../Models/HeroWinDataModel';
 import { HeroWinGraphModel } from '../../Models/HeroWinGraphModel';
+import './winrate.scss';
 
 
-function Winrate(): JSX.Element {
+function Winrate(props): JSX.Element {
     let renderLineChart: JSX.Element = <></>;
-    const currentHero = useSelector(selectCurrentHero);
     const totalDays = 10;
-    const { error, loading, data } = useQuery(GET_HERO_GRAPH, {
-        variables: { heroIds: [currentHero.id], take: totalDays}
-    });
-    if (data) {
-        console.log(data);
-        const heroWinData = (data as ISynergy).heroStats.hero as HeroWinDataModel[];
-        const graphData = heroWinData.map((data) => new HeroWinGraphModel(
-            Number((data.winCount / data.matchCount * 100).toFixed(1)),
-            data.timestamp,
-            data.matchCount)
+    if (props.winData) {
+        console.log(props);
+        const graphData = props.winData.map((data) =>
+            new HeroWinGraphModel(
+                Number((data.winCount / data.matchCount * 100).toFixed(1)),
+                data.timestamp,
+                data.matchCount
+            )
         )
         const lowestWinrate = Math.min.apply(Math, graphData.map(data => data.winrate));
         const highestWinrate = Math.max.apply(Math, graphData.map(data => data.winrate));
@@ -31,16 +23,16 @@ function Winrate(): JSX.Element {
         const graphHighValue = highestWinrate + 5 > 100 ? 100 : Math.floor(highestWinrate + 5); 
 
         renderLineChart = (
-            <LineChart width={600} height={300} data={graphData} margin={{ top: 5, right: 20, bottom: 5, left: 0 }}>
+            <LineChart className = "hero-chart" width={600} height={300} data={graphData} margin={{ top: 5, right: 20, bottom: 5, left: 0 }}>
               <Line type="monotone" dataKey="winrate" stroke="#8884d8" />
               <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
-              <XAxis dataKey="xAxis" />
-              <YAxis tickCount={10} domain={[graphLowValue, graphHighValue]} />
+              <XAxis className = "x-axis" dataKey="xAxis" />
+              <YAxis className = "y-axis" tickCount={10} domain={[graphLowValue, graphHighValue]} />
               <Tooltip />
             </LineChart>
           );
     }
-    return data && (
+    return props.winData && (
         <div className = "synergy-container">
             <h2 className = "synergy-header">Win Rate Over Time</h2>
             <div className = "synergy-body">
@@ -50,4 +42,9 @@ function Winrate(): JSX.Element {
     ) || <></>
 }
 
-export default Winrate;
+function mapState(state) {
+    const winData = state.heroData?.winData;
+    return { winData};
+}
+
+export default connect(mapState, null)(Winrate);

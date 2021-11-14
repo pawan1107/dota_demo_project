@@ -1,5 +1,3 @@
-import moment from 'moment';
-import { DATE_FORMAT } from '../Constants/StringConstant';
 import { PurchaseItemHeroModel } from './PurchaseItemHeroModel';
 
 export class FullPurchaseItemModel {

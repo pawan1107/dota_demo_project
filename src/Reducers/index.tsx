@@ -1,6 +1,8 @@
 import { combineReducers } from 'redux';
-import ConstantReducer from './ConstantReducer';
+import { constantData } from './ConstantReducer';
+import { heroData } from './HeroDataReducers';
 
 export default combineReducers({
-  constant: ConstantReducer
+  constantData,
+  heroData
 });

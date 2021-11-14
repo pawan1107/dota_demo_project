@@ -13,14 +13,4 @@
             margin: auto 16px;
         }
     }
-    .hero-body {
-        display: inline-flex;
-        flex-direction: row;
-        margin-top: 32px;
-    }
-    @media (max-width: 800px) {
-        .hero-body {
-            display: inline-block;
-        }
-      }
 }

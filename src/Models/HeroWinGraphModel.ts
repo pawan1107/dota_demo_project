@@ -1,5 +1,4 @@
-import moment from 'moment';
-import { DATE_FORMAT } from '../Constants/StringConstant';
+import { MONTHS } from '../Constants/StringConstant';
 
 export class HeroWinGraphModel {
     public winrate: number;
@@ -14,7 +13,7 @@ export class HeroWinGraphModel {
         this.timeStamp = timeStamp;
         this.matchCount = matchCount;
         this.date = new Date(timeStamp * 1000);
-        this.xAxis = moment(this.date).format(DATE_FORMAT);
+        this.xAxis = MONTHS[this.date.getMonth()] + " " + this.date.getDate() + "th";
         this.yAxis = winrate + " %";
     }
 }

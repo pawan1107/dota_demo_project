@@ -7,11 +7,11 @@ const defaultState = {
     currentHero: null
   };
   
-  export default function(state = defaultState, action: any) {
+  export function constantData(state = defaultState, action: any) {
 
     switch (action.type) {
       case FETCH_CONSTANT:
-        const constData = action.payload as ConstantQueryModel;
+        const constData = action.payload;
         const currentHero = constData.heroes[Math.floor(Math.random() * constData.heroes.length)];
         return {
           ...state,

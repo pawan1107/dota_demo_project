@@ -2,7 +2,7 @@ import { gql } from "@apollo/client";
 import { Hero, HeroDayFragment, HeroDryad, HeroStatsHeroDryad, Item } from "./Fragments"
 
 
-export const GET_ALL_HERO_ITEM = gql`
+export const GET_ALL_CONSTANT = gql`
     ${Hero}
     ${Item}
     query Constants($languageEnum: Language) {
@@ -20,57 +20,40 @@ export const GET_ALL_HERO_ITEM = gql`
     }
 `;
 
-
-export const GET_HERO_MATCHUP = gql`
+export const GET_ALL_HERO_DATA = gql`
     ${HeroDryad}
+    ${HeroDayFragment}
     ${HeroStatsHeroDryad}
-    query GetHeroMatchup($heroId: Short!, $bracketBasicIds: [RankBracketHeroTimeDetail]) {
-        heroStats {
-          heroVsHeroMatchup(heroId: $heroId, bracketBasicIds: $bracketBasicIds) {
-            advantage {
-              ...HeroDryad
-              __typename
-            }
-            disadvantage {
-              ...HeroDryad
-              __typename
-            }
+    query GetHeroMatchup($heroId: Short!) {
+      heroStats {
+        heroVsHeroMatchup(heroId: $heroId) {
+          advantage {
+            ...HeroDryad
+            __typename
+          }
+          disadvantage {
+            ...HeroDryad
             __typename
           }
           __typename
         }
-    }
-`;
-
-export const GET_HERO_GRAPH = gql`
-    ${HeroDayFragment}
-    query GetGraphsTime($heroIds: [Short!]!, $take: Int) {
-      heroStats {
-        hero: winDay(take: $take, heroIds: $heroIds) {
+        hero: winDay(heroIds: [$heroId]) {
           ...HeroDayFragment
           __typename
         }
-        __typename
-      }
-    }
-`;
-
-export const GET_HERO_PURCHASE_ITEM_FULL = gql`
-  query GetFullHeroPurchasePattern($matchLimit: Int = 0, $heroId: Short!) {
-    heroStats {
-      itemFullPurchase(matchLimit: $matchLimit, heroId: $heroId) {
-        heroId
-        week
-        events {
-          itemId
+        itemFullPurchase(heroId: $heroId, matchLimit: 0) {
+          heroId
+          week
+          events {
+            itemId
+            matchCount: count
+            wins: winsAverage
+            __typename
+          }
           matchCount: count
-          wins: winsAverage
           __typename
         }
-        matchCount: count
         __typename
       }
-      __typename
-    }
-  }    
+    } 
 `;

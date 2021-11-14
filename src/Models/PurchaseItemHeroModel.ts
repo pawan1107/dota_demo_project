@@ -1,6 +1,3 @@
-import moment from 'moment';
-import { DATE_FORMAT } from '../Constants/StringConstant';
-
 export class PurchaseItemHeroModel {
     public itemId: number;
     public wins: number;
