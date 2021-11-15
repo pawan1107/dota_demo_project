@@ -33,12 +33,14 @@ function HeroData(props) {
         return (<div>Something went wrong. Please Try again</div>)
     }
 
-    return data && (
+    return (
+        data && (
         <div className = "hero-body">
             <Synergy/>
             <Winrate/>
             <PurchaseItem/>
         </div>
+        )
     ) || <></>
 }
 

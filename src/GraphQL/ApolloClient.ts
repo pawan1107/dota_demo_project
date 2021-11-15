@@ -17,6 +17,7 @@ const errorLink = onError(({ graphQLErrors, networkError }) => {
     }
 });
 
+// Create new apollo client
 export const client = new ApolloClient({
     cache: new InMemoryCache(),
     link: from([

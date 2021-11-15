@@ -1,7 +1,8 @@
-.synergy-container {
-    .synergy-body {
+.winrate-container {
+    .winrate-body {
+        display: inline-flex;
         .hero-chart {
-            font-size: 14px;
+            font-size: 14px; 
             .y-axis {
             }
         }

@@ -32,7 +32,7 @@ function Hero(props): JSX.Element {
     return props.currentHero ? (
         <div className = "hero-container">
             <div className = "hero-section">
-                <img className = "hero-image" src={ GetHeroHorz(props.currentHero.name) } />
+                <img className = "hero-image" alt = {props.currentHero.language.displayName} src={ GetHeroHorz(props.currentHero.name) } />
                 <h1 className = "hero-name">{props.currentHero.language.displayName}</h1>
             </div>
             <HeroData />

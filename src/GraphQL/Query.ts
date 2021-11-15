@@ -37,7 +37,7 @@ export const GET_ALL_HERO_DATA = gql`
           }
           __typename
         }
-        hero: winDay(heroIds: [$heroId]) {
+        hero: winDay(heroIds: [$heroId], take: 7) {
           ...HeroDayFragment
           __typename
         }

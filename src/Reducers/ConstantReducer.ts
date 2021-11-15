@@ -1,5 +1,4 @@
 import { FETCH_CONSTANT } from "../Constants/TypesRequest";
-import { ConstantQueryModel } from "../Models/ConstantQueryModel";
 
 const defaultState = {
     heroes: [],
@@ -8,10 +7,10 @@ const defaultState = {
   };
   
   export function constantData(state = defaultState, action: any) {
-
     switch (action.type) {
       case FETCH_CONSTANT:
         const constData = action.payload;
+        // select random hero from hero list
         const currentHero = constData.heroes[Math.floor(Math.random() * constData.heroes.length)];
         return {
           ...state,

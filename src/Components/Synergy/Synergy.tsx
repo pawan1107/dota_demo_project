@@ -11,6 +11,7 @@ function Synergy(props): JSX.Element {
 
     if (props.heroVsHeroMatchup) {
         const advantage = props.heroVsHeroMatchup.advantage[0]
+        // Get Best against data
         if (advantage) {
             const bestSynergyData = advantage.vs.slice(0, totalElementDisplay);
             bestSynergy = bestSynergyData.map((data) => 
@@ -18,6 +19,7 @@ function Synergy(props): JSX.Element {
         }
 
         const disadvantage = props.heroVsHeroMatchup.disadvantage[0]
+        // Get worst against data
         if (disadvantage) {
             const wortSynergyData = disadvantage.vs.slice(0, totalElementDisplay);
             wortSynergy = wortSynergyData.map((data) =>
@@ -25,14 +27,16 @@ function Synergy(props): JSX.Element {
         }
     }
 
+    // Generate each row of synergy
     const syngeryDiv = (synergy: IHeroSynergy, isBest: boolean) => {
         return (<div key = {synergy.heroId2.toString()} className = "synergy-cell"> 
-            <img className = "hero-icon" src={ GetHeroIcon(synergy.hero2.name) } />
+            <img className = "hero-icon" alt = "synergy.hero2.name" src={ GetHeroIcon(synergy.hero2.name) } />
             <span className = "synergy-value">{isBest ? "+ ": ""}{synergy.synergy.toFixed(1)}</span>
         </div>)
     }
 
-    return props.heroVsHeroMatchup && (
+    return (
+        props.heroVsHeroMatchup && (
         <div className = "synergy-container">
             <h2 className = "synergy-header">Synergy</h2>
             <div className = "synergy-body">
@@ -57,7 +61,7 @@ function Synergy(props): JSX.Element {
             </div>
             
         </div>
-    ) || <></>
+    )) || <></>
 }
 
 function mapState(state) {

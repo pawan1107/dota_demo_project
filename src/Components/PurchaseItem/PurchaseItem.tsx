@@ -10,6 +10,7 @@ function PurchaseItem(props) {
 
     let tableData: ItemPurchaseTableModel[] = [];
 
+    // Generate table individual cell data
     const getTableDataCell = (data: PurchaseItemHeroModel, totalMatch: number): ItemPurchaseTableModel | null => {
         const item = props.itemList.find(item => item.id === data.itemId);
         if (item) {
@@ -24,8 +25,6 @@ function PurchaseItem(props) {
         return null;
     }
     
-
-
     if (props.itemData) {
         const itemPurchaseData = props.itemData;
         const distinctItem = itemPurchaseData.events.filter((thing, index, self) =>
@@ -36,25 +35,25 @@ function PurchaseItem(props) {
         tableData = distinctItem.map((data) => getTableDataCell(data, itemPurchaseData.matchCount)) as ItemPurchaseTableModel[];
     }
 
-    return props.itemData && (
+    return (
+        props.itemData && (
         <div className = "purchaseItem-container">
             <h2 className = "synergy-header">Item Purchase Details</h2>
             <ReactTable
                 data={tableData}
                 columns={[
                     {
-                    Header: "Item",
-                    accessor: "imageUrl",
-                    className: "item-cell",
-                    sortable:false,
-                    Cell: (data) =>  (
-                        <div className = "item-name-cell">
-                            <img className = "item-icon" src= {data.original.iconUrl}
-                            width={60}
-                            />
-                            <span className = "item-name">{data.original.name}</span>
-                        </div>
-                    )
+                        Header: "Item",
+                        accessor: "imageUrl",
+                        className: "item-cell",
+                        sortable:false,
+                        Cell: (data) =>  (
+                            <div className = "item-name-cell">
+                            <img className = "item-icon" alt= {"img-" + data.original.name} src= {data.original.iconUrl} width={60}/>
+                                <span className = "item-name">{data.original.name}</span>
+                            </div>
+                        ),
+                        width: 240
                     },
                     {
                         Header: "Pick Rate",
@@ -85,7 +84,7 @@ function PurchaseItem(props) {
                 
             />            
         </div>
-    ) || <></>
+    )) || <></>
 }
 
 

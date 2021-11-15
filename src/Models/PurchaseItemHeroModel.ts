@@ -4,9 +4,9 @@ export class PurchaseItemHeroModel {
     public matchCount: number;
 
     public constructor(data?: IPurchaseItemHeroModel) {
-        this.itemId = data && data.itemId || 0;;
-        this.wins = data && data.wins || 0;;
-        this.matchCount = data && data.matchCount || 0;;
+        this.itemId = (data && data.itemId) || 0;
+        this.wins = (data && data.wins) || 0;
+        this.matchCount = (data && data.matchCount) || 0;
     }
 }
 

@@ -4,9 +4,9 @@ export class BaseModel {
     public language: LanguageModel;
 
     public constructor(data?: IBase) {
-        this.id = data && data.id || 0;
-        this.name = data && data.name || "";
-        this.language = data && new LanguageModel(data.language) || new LanguageModel();
+        this.id = (data && data.id) || 0;
+        this.name = (data && data.name) || "";
+        this.language = (data && new LanguageModel(data.language)) || new LanguageModel();
     }
 
     public getDisplaylanguage(): string {
@@ -18,7 +18,7 @@ export class LanguageModel {
     public displayName: string;
 
     public constructor (data?: ILanguageModel) {
-        this.displayName = data && data.displayName || "";
+        this.displayName = (data && data.displayName) || "";
     }
 }
  
