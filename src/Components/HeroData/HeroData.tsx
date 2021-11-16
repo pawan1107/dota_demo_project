@@ -26,11 +26,11 @@ function HeroData(props) {
 
 
     if (loading) {
-        return (<div>Loading ...</div>)
+        return (<div className = "upper-margin">Loading ...</div>)
     }
 
     if (error) {
-        return (<div>Something went wrong. Please Try again</div>)
+        return (<div className = "upper-margin">Something went wrong. Please Try again</div>)
     }
 
     return (
